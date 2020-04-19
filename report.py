@@ -54,7 +54,7 @@ def get_response(page_num, return_total_count=False):
         'showTitle': '',
         'seDate': START_DATE + '~' + END_DATE,
     }
-    result_list = []
+    result_list = [] 
     reloading = 0
     while True:
 #        reloading += 1

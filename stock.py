@@ -1,18 +1,18 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 13 12:05:54 2020
-@author: Administrator
-"""
-import pandas_datareader.data as web
-import numpy as np 
-import matplotlib.pyplot as plt 
-import datetime
-import yfinance  as yf
-yf.pdr_override()
-start = datetime.datetime(2020,1,1)#获取数据的时间段-起始时间
-end = datetime.datetime(2020,3,1)#获取数据的时间段-结束时间
-stock = web.get_data_yahoo("600797.SS",   start, end)#获取浙大网新2017年1月1日至今的股
- 
-stock['Adj Close'].plot(legend=True, figsize=(10,4))
-plt.show()
-stock.to_csv(r'table.csv',columns=stock.columns,index=True)
+from jqdatasdk import *
+import numpy
+import csv
+import os
+
+dataFolder='dataFolder'
+if(os.path.exists(dataFolder)):
+    print("dataFolder already exist")
+else:os.mkdir('./'+dataFolder)
+     
+authStatus = auth('15850798209','rbldevil198929aA')
+print("sdk count = ",get_query_count())
+all_securities=get_all_securities(['stock'])
+all_securities.to_csv('stocklist.csv', sep=',')
+
+print(all_securities[:2]) 
+#df = get_price('603339.XSHG', start_date='2020-04-15', end_date='2020-04-17 23:00:00', frequency='minute') # 获得000001.XSHG的2015年01月的分钟数据, 只获取open+close字段
+#print(df) 
