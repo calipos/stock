@@ -68,10 +68,10 @@ potentialList=sorted(potentialList.items(),key=lambda kv:(kv[1], kv[0]),reverse=
 #print(potentialList)
 print ('there are %d potential stocks.'%len(potentialList))
      
-#authStatus = auth('15850798209','rbldevil198929aA')
+authStatus = auth('15850798209','rbldevil198929aA')
 #authStatus = auth('13308189942','rbldevil198929aA')
 #authStatus = auth('15730085953','rbldevil198929aA')
-authStatus = auth('18081550388','rbldevil198929aA')
+#authStatus = auth('18081550388','rbldevil198929aA')
 print("sdk count = ",get_query_count())
 
 #all_securities=get_all_securities(['stock'])
@@ -117,7 +117,7 @@ for codeId in targetCodeId:
         theBeginMonth = int(currentStartDate.split('-')[1])
         theBeginDay = int(currentStartDate.split('-')[2])
         if currentEndDate_year*12+currentEndDate_month-theBeginYear*12+theBeginMonth>=24:
-            currentStartDate = str(datetime.date.today() -datetime.timedelta(days=500))
+            currentStartDate = str(datetime.date.today() -datetime.timedelta(days=20))
         infoDict={'currentStartDate':currentStartDate};
         with open(info_doc_path,"w") as f: json.dump(infoDict,f)
     print("start date = ",currentStartDate)
