@@ -135,7 +135,7 @@ for codeId in targetCodeId:
         #print("the same date not need updata")
         continue
     else:
-        print("PULL ... ")
+        print(thisCode," PULL ... ")
         df_add = get_price(thisCode, start_date=currentStartDate, end_date=endDate+' 23:00:00', frequency='minute') 
         df_add.to_csv(dataFolder+'/'+str(thisCode)+'.csv', sep=',', mode='a', header=False)
         infoDict={'currentStartDate':nextStartDate};
